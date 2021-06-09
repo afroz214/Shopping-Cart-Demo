@@ -5,9 +5,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
         case 'ADD_TO_CART':
             let existingProduct = state.cartItems.find(p => p.id === payload.id)
             if (existingProduct) {
+                const index = state.cartItems.findIndex(o => o.id === payload.id)
+                state.cartItems.splice(index, 1)
                 return {
                     ...state,
-                    cartItems: state.cartItems.map(p => p.id === existingProduct.id ? payload : p)
+                    cartItems: [...state.cartItems, payload]
+                    // cartItems: state.cartItems.map(p => p.id === existingProduct.id ? payload : p)
                 }
             } else {
                 return {
