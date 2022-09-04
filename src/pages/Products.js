@@ -1,9 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Laptop from './laptop.png'
 import { addToCart } from '../actions/cart'
+import { useHistory } from 'react-router'
+import { deleteUser, editUser } from '../reducers/userReducer'
 
-const Products = ({ history }) => {
+const Products = ({  }) => {
 
     const dummyProduct = [
         {
@@ -26,24 +28,34 @@ const Products = ({ history }) => {
         },
     ]
 
+    const { users } = useSelector(state => state.login)
+
     const dispatch = useDispatch()
+    const history = useHistory()
+
+    const editUserHandler = (product) => {
+        dispatch(editUser(product))
+        history.push("/")
+    }
 
 
     return (
         <div className="container mt-5">
+            <button onClick={() => history.push("/")}>Back</button>
             <div className="row">
-                {dummyProduct.map((product, index) => (
+                {users.map((product, index) => (
                     <div key={index} className="col-md-4 text-center">
                         <div className="card card-body m-2">
                       <img src={Laptop} className="img-fluid" alt="img" />
+           
                       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                          <p className="lead"> {product.productName} </p>
-                          <p className="lead" style={{ fontWeight: 'bold' }}> ${product.price} </p>
+                          <p className="lead"> {product?.firstName} </p>
+                          <p className="lead" style={{ fontWeight: 'bold' }}> ${product.lastName} </p>
                       </div>
-                      <button onClick={() => {
-                          dispatch(addToCart(product, 1))
-                          history.push('/cart')
-                      }} className="btn btn-danger">Add To Cart</button>
+                      <div className='d-flex' style={{ justifyContent: "space-around",}}>
+                      <button onClick={() => editUserHandler(product)} className="btn btn-primary">Edit</button>
+                      <button onClick={() => dispatch(deleteUser(product))} className="btn btn-danger">Delete</button>
+                      </div>
                       </div>
                     </div>
                 ))}
