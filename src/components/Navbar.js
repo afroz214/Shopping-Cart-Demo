@@ -20,30 +20,31 @@ const Navbar = () => {
     }
 
     return (
-           <nav className="navbar navbar-expand-sm navbar-dark">
-             <div className="container">
-             <Link className="navbar-brand">Shopping App</Link>
-             <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                 <span className="navbar-toggler-icon"></span>
-             </button>
-             <div className="navbar-collapse collapse" id="navbarCollapse">
-                 <ul className="navbar-nav ml-auto"> 
-                 {user ?
-                 <> 
-                  <NavLink to="/products" exact className="nav-item nav-link">Products</NavLink>
-                  <NavLink to="/cart" exact className="nav-item nav-link">Cart</NavLink>
-                  <li onClick={logoutHandler} style={{ cursor: 'pointer' }} className="nav-item nav-link">Logout</li>
-                  </>
-                  : 
-                  <>
-                 <NavLink to="/cart" exact className="nav-item nav-link">Cart</NavLink>
-                 <NavLink to="/" exact className="nav-item nav-link">Login</NavLink>
-                </>
-                }
-                 </ul> 
-                 </div>  
-             </div>   
-            </nav> 
+        <div></div>
+        //    <nav className="navbar navbar-expand-sm navbar-dark">
+        //      <div className="container">
+        //      <Link className="navbar-brand">Shopping App</Link>
+        //      <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        //          <span className="navbar-toggler-icon"></span>
+        //      </button>
+        //      <div className="navbar-collapse collapse" id="navbarCollapse">
+        //          <ul className="navbar-nav ml-auto"> 
+        //          {user ?
+        //          <> 
+        //           <NavLink to="/products" exact className="nav-item nav-link">Products</NavLink>
+        //           <NavLink to="/cart" exact className="nav-item nav-link">Cart</NavLink>
+        //           <li onClick={logoutHandler} style={{ cursor: 'pointer' }} className="nav-item nav-link">Logout</li>
+        //           </>
+        //           : 
+        //           <>
+        //          <NavLink to="/cart" exact className="nav-item nav-link">Cart</NavLink>
+        //          <NavLink to="/" exact className="nav-item nav-link">Login</NavLink>
+        //         </>
+        //         }
+        //          </ul> 
+        //          </div>  
+        //      </div>   
+        //     </nav> 
     )
 }
 

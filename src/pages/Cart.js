@@ -8,6 +8,7 @@ const Cart = ({ history }) => {
 
     const cart = useSelector(state => state.cart)
 
+    // const cartItems = []
     const { cartItems } = cart
 
     const user = useSelector(state => state.user)
@@ -19,7 +20,7 @@ const Cart = ({ history }) => {
         <div className="container my-5">
             <div className="row">
                 <div className="col-md-8">
-                   {cartItems.length === 0 ? <div className="bg-info text-white py-5">
+                   {cartItems?.length === 0 ? <div className="bg-info text-white py-5">
                        <h1 className="ml-5 mb-3">Your Cart is Empty</h1>
                        <Link to="/products" className="btn btn-primary text-white border border-white ml-5">Continue Shopping</Link>
                    </div> : 
@@ -34,12 +35,12 @@ const Cart = ({ history }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cartItems.map((p, i) => (
+                        {cartItems?.map((p, i) => (
                             <tr key={i}>
                                 <td> <img src={Laptop} className="img-fluid" style={{ width: '50px' }} alt="img" /> </td>
-                                <td> {p.productName} </td>
-                                <td> ${p.price} </td>
-                                <td> <select value={p.qty} className="form-control" onChange={e => {
+                                <td> {p?.productName} </td>
+                                <td> ${p?.price} </td>
+                                <td> <select value={p?.qty} className="form-control" onChange={e => {
                                     let value = Number(e.target.value)
                                     dispatch(addToCart(p, value))
                                 }} >
