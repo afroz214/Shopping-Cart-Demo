@@ -13,7 +13,7 @@ const Demo = () => {
       <div style={{ width: "80%", margin: "auto", padding: "20px 0px", display: "flex" }}>
         <button style={{ fontSize: "25px", fontWeight: "bold", padding: "5px 30px",
       background: "#00968896", color: "#fff", border: "none", borderRadius: "9px" }}>Logo</button>
-        <input style={{ width: "45%", marginLeft: "20px", padding: "7px 5px", border: "1px solid #00968896", borderRadius: "10px", fontSize: "13px" }} className='text-center' type='text' placeholder='What are you looking here eg. freelancer, projects' />
+        <input style={{ width: "40%", marginLeft: "20px", padding: "7px 5px", border: "1px solid #00968896", borderRadius: "10px", fontSize: "13px" }} className='text-center' type='text' placeholder='What are you looking here eg. freelancer, projects' />
         <button className='search' style={{ marginLeft: "10px", border: "none", background: "black", color: "#fff", borderRadius: "8px", fontSize: "18px" }}><FaSearch /></button>
        <div className='postDiv'> 
       <span style={{ fontWeight: "bold", margin: "0 20px", fontSize: "17px" }}>Post Project</span>
